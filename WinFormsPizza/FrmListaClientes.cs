@@ -1,29 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using ConsolePizza;
-
+﻿using Entidades;
+using Servicios;
 namespace WinFormsPizza
 {
     public partial class FrmListaClientes : Form
     {
+        private readonly ClienteServ _clienteServ;
         public FrmListaClientes()
         {
             InitializeComponent();
+            _clienteServ = new ClienteServ();
             LlenarGrid();
         }
 
         private void LlenarGrid()
         {
-            Cliente cliente = new Cliente();
-
-            List<Cliente> clientes = cliente.GetClientes();
+       
+            List<Cliente> clientes = _clienteServ.GetClientes();
             dataGridClientes.DataSource = clientes;
         }
 

@@ -1,21 +1,14 @@
-﻿using ConsolePizza;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
+﻿using Entidades;
+using Servicios;
 namespace WinFormsPizza
 {
     public partial class FrmProducto : Form
     {
+        private readonly ProductoServ _productoServ;
         public FrmProducto()
         {
             InitializeComponent();
+            _productoServ = new ProductoServ();
         }
 
         private void BtnVolver_Click(object sender, EventArgs e)
@@ -49,7 +42,7 @@ namespace WinFormsPizza
             };
 
             // 🔹 Persistir usando el patrón del modelo
-            producto.AgregarProducto(producto);
+            _productoServ.AgregarProducto(producto);
 
             // 🔹 Navegar a la lista de productos
             this.Close();

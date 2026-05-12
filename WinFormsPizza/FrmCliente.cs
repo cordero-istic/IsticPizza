@@ -1,22 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using ConsolePizza;
-
-
+﻿using Entidades;
+using Servicios;
 namespace WinFormsPizza
 {
     public partial class FrmCliente : Form
     {
+        private readonly ClienteServ _clienteServ;
         public FrmCliente()
         {
             InitializeComponent();
+            _clienteServ = new ClienteServ();
         }
 
 
@@ -30,7 +22,9 @@ namespace WinFormsPizza
         {
             //Recordemos Validar los Datos
 
-            Cliente cliente = new Cliente() { IdCliente = 1, 
+            Cliente cliente = new Cliente()
+            {
+                IdCliente = 1,
                 Nombre = TxtNombre.Text,
                 Apellido = TxtApellido.Text,
                 NroDocumento = TxtNroDoc.Text,
@@ -38,15 +32,11 @@ namespace WinFormsPizza
                 Correo = TxtCorreo.Text
             };
 
-            
-
-            
-
-            cliente.AgregarCliente(cliente);
+            _clienteServ.AgregarCliente(cliente);
             this.Close();
             FrmListaClientes frmCliente = new FrmListaClientes();
             frmCliente.ShowDialog();
-            
+
         }
     }
 }

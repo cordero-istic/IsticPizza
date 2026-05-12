@@ -1,28 +1,21 @@
-﻿using ConsolePizza;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
+﻿using Entidades;
+using Servicios;
 namespace WinFormsPizza
 {
     public partial class FrmListaProductos : Form
     {
+        private readonly ProductoServ _productoServ;
         public FrmListaProductos()
         {
             InitializeComponent();
+            _productoServ = new ProductoServ();
             CargarProductos();
         }
 
         private void CargarProductos()
         {
-            Producto productoModel = new Producto();
-            var lista = productoModel.GetProductos();
+       
+            var lista = _productoServ.GetProductos();
 
             // 👇 Opción A: DataGridView (recomendado)
             dataGridProductos.DataSource = lista;
