@@ -30,11 +30,11 @@
         {
             groupBox1 = new GroupBox();
             dataGridClientes = new DataGridView();
+            BtnNuevo = new Button();
+            BtnVolver = new Button();
             ColId = new DataGridViewTextBoxColumn();
             ColNombre = new DataGridViewTextBoxColumn();
             ColApellido = new DataGridViewTextBoxColumn();
-            BtnNuevo = new Button();
-            BtnVolver = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridClientes).BeginInit();
             SuspendLayout();
             // 
@@ -58,29 +58,6 @@
             dataGridClientes.Size = new Size(776, 284);
             dataGridClientes.TabIndex = 1;
             // 
-            // ColId
-            // 
-            ColId.DataPropertyName = "IdCliente";
-            ColId.HeaderText = "Id";
-            ColId.Name = "ColId";
-            ColId.ReadOnly = true;
-            // 
-            // ColNombre
-            // 
-            ColNombre.DataPropertyName = "Nombre";
-            ColNombre.HeaderText = "Nombre";
-            ColNombre.Name = "ColNombre";
-            ColNombre.ReadOnly = true;
-            ColNombre.Width = 200;
-            // 
-            // ColApellido
-            // 
-            ColApellido.DataPropertyName = "Apellido";
-            ColApellido.HeaderText = "Apellido";
-            ColApellido.Name = "ColApellido";
-            ColApellido.ReadOnly = true;
-            ColApellido.Width = 200;
-            // 
             // BtnNuevo
             // 
             BtnNuevo.Location = new Point(632, 413);
@@ -100,6 +77,29 @@
             BtnVolver.Text = "Volver";
             BtnVolver.UseVisualStyleBackColor = true;
             BtnVolver.Click += BtnVolver_Click;
+            // 
+            // ColId
+            // 
+            ColId.DataPropertyName = "ClienteId";
+            ColId.HeaderText = "Id";
+            ColId.Name = "ColId";
+            ColId.ReadOnly = true;
+            // 
+            // ColNombre
+            // 
+            ColNombre.DataPropertyName = "Nombre";
+            ColNombre.HeaderText = "Nombre";
+            ColNombre.Name = "ColNombre";
+            ColNombre.ReadOnly = true;
+            ColNombre.Width = 200;
+            // 
+            // ColApellido
+            // 
+            ColApellido.DataPropertyName = "Apellido";
+            ColApellido.HeaderText = "Apellido";
+            ColApellido.Name = "ColApellido";
+            ColApellido.ReadOnly = true;
+            ColApellido.Width = 200;
             // 
             // FrmListaClientes
             // 

@@ -32,7 +32,7 @@ namespace WinFormsPizza
             // 🔹 Crear instancia del producto
             Producto producto = new Producto()
             {
-                IdProducto = 1, // TODO: implementar auto-incremental
+                //ProductoId = 1, // TODO: implementar auto-incremental
                 Nombre = TxtNombre.Text,
                 Descripcion = TxtDescripcion.Text,
                 Precio = double.TryParse(TxtPrecio.Text, out var precio) ? precio : 0,

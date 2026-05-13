@@ -36,6 +36,7 @@
             ColDescripcion = new DataGridViewTextBoxColumn();
             BtnNuevo = new Button();
             BtnVolver = new Button();
+            BtnEditar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridProductos).BeginInit();
             SuspendLayout();
             // 
@@ -61,7 +62,7 @@
             // 
             // ColId
             // 
-            ColId.DataPropertyName = "IdProducto";
+            ColId.DataPropertyName = "ProductoId";
             ColId.HeaderText = "Id";
             ColId.Name = "ColId";
             ColId.ReadOnly = true;
@@ -84,7 +85,7 @@
             // 
             // BtnNuevo
             // 
-            BtnNuevo.Location = new Point(632, 413);
+            BtnNuevo.Location = new Point(551, 413);
             BtnNuevo.Name = "BtnNuevo";
             BtnNuevo.Size = new Size(75, 23);
             BtnNuevo.TabIndex = 2;
@@ -102,12 +103,23 @@
             BtnVolver.UseVisualStyleBackColor = true;
             BtnVolver.Click += BtnVolver_Click;
             // 
-            // FrmListaClientes
+            // BtnEditar
+            // 
+            BtnEditar.Location = new Point(632, 413);
+            BtnEditar.Name = "BtnEditar";
+            BtnEditar.Size = new Size(75, 23);
+            BtnEditar.TabIndex = 4;
+            BtnEditar.Text = "Editar";
+            BtnEditar.UseVisualStyleBackColor = true;
+            BtnEditar.Click += BtnEditar_Click;
+            // 
+            // FrmListaProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 445);
             ControlBox = false;
+            Controls.Add(BtnEditar);
             Controls.Add(BtnVolver);
             Controls.Add(BtnNuevo);
             Controls.Add(dataGridProductos);
@@ -128,5 +140,6 @@
         private DataGridViewTextBoxColumn ColId;
         private DataGridViewTextBoxColumn ColNombre;
         private DataGridViewTextBoxColumn ColDescripcion;
+        private Button BtnEditar;
     }
 }

@@ -24,7 +24,7 @@ namespace WinFormsPizza
 
             Cliente cliente = new Cliente()
             {
-                IdCliente = 1,
+                //ClienteId = 1,
                 Nombre = TxtNombre.Text,
                 Apellido = TxtApellido.Text,
                 NroDocumento = TxtNroDoc.Text,
