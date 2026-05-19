@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            label7 = new Label();
             TxtImageUrl = new TextBox();
             label5 = new Label();
             TxtUnidadMedida = new TextBox();
@@ -43,7 +44,6 @@
             label6 = new Label();
             BtnGuardar = new Button();
             BtnVolver = new Button();
-            label7 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -67,6 +67,15 @@
             groupBox1.TabIndex = 10;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos Producto";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(37, 170);
+            label7.Name = "label7";
+            label7.Size = new Size(43, 15);
+            label7.TabIndex = 20;
+            label7.Text = "Precio:";
             // 
             // TxtImageUrl
             // 
@@ -118,7 +127,7 @@
             // 
             // TxtNombre
             // 
-            TxtNombre.Location = new Point(140, 49);
+            TxtNombre.Location = new Point(140, 21);
             TxtNombre.Name = "TxtNombre";
             TxtNombre.Size = new Size(243, 23);
             TxtNombre.TabIndex = 13;
@@ -126,7 +135,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(37, 53);
+            label2.Location = new Point(37, 25);
             label2.Name = "label2";
             label2.Size = new Size(54, 15);
             label2.TabIndex = 12;
@@ -134,15 +143,15 @@
             // 
             // TxtDescripcion
             // 
-            TxtDescripcion.Location = new Point(140, 20);
+            TxtDescripcion.Location = new Point(140, 50);
             TxtDescripcion.Name = "TxtDescripcion";
-            TxtDescripcion.Size = new Size(116, 23);
+            TxtDescripcion.Size = new Size(243, 23);
             TxtDescripcion.TabIndex = 11;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(37, 24);
+            label1.Location = new Point(37, 54);
             label1.Name = "label1";
             label1.Size = new Size(72, 15);
             label1.TabIndex = 10;
@@ -182,15 +191,6 @@
             BtnVolver.UseVisualStyleBackColor = true;
             BtnVolver.Click += BtnVolver_Click;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(37, 170);
-            label7.Name = "label7";
-            label7.Size = new Size(43, 15);
-            label7.TabIndex = 20;
-            label7.Text = "Precio:";
-            // 
             // FrmProducto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -201,7 +201,7 @@
             Controls.Add(groupBox1);
             Name = "FrmProducto";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Producto";
+            Text = "Nuevo Producto";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);

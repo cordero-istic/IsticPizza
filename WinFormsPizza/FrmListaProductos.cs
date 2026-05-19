@@ -18,6 +18,7 @@ namespace WinFormsPizza
             var lista = _productoServ.GetProductos();
 
             // 👇 Opción A: DataGridView (recomendado)
+            dataGridProductos.AutoGenerateColumns = false;
             dataGridProductos.DataSource = lista;
 
             // 👇 Opción B: ListBox (más simple)
@@ -46,19 +47,29 @@ namespace WinFormsPizza
                 return;
             }
 
-            if (dataGridProductos.SelectedCells.Count == 0)
+            if (dataGridProductos.SelectedCells.Count == 0)//Validamos que haya una fila seleccionada
             {
                 MessageBox.Show("Debe seleccionar un Producto para Editar");
                 return;
             }
 
-            int Id;
+            //Consumir el servicio para obtener el producto seleccionado
 
-            Id = int.Parse(dataGridProductos.CurrentRow.Cells["ColId"].Value.ToString());
-
+            int Id = int.Parse(dataGridProductos.CurrentRow.Cells["ColId"].Value.ToString());
             var Product = _productoServ.GetProductoById(Id);
+            
+            if (Product == null)
+            {
+                MessageBox.Show("Producto no encontrado");
+                return;
+            }
 
-
+            //Abrir el formulario de edición
+            this.Close();
+            FrmProducto productoEdit = new FrmProducto(Product);
+            productoEdit.Text = "Editar Producto";
+            productoEdit.Show();
+            
         }
     }
 }

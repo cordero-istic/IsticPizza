@@ -16,6 +16,7 @@ namespace WinFormsPizza
         {
        
             List<Cliente> clientes = _clienteServ.GetClientes();
+            dataGridClientes.AutoGenerateColumns = false;
             dataGridClientes.DataSource = clientes;
         }
 

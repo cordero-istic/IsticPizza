@@ -28,5 +28,20 @@ namespace Servicios
             return Product;
         }
 
+        public void EditarProducto(Producto productoToEdit)
+        {
+            var existingProduct = _context.Productos.Find(productoToEdit.ProductoId);
+            if (existingProduct != null)
+            {
+                existingProduct.Nombre = productoToEdit.Nombre;
+                existingProduct.Descripcion = productoToEdit.Descripcion;
+                existingProduct.Precio = productoToEdit.Precio;
+                existingProduct.TipoProducto = productoToEdit.TipoProducto;
+                existingProduct.UnidadMedida = productoToEdit.UnidadMedida;
+                existingProduct.ImageUrl = productoToEdit.ImageUrl;
+                _context.SaveChanges();
+            }
+        }
+
     }
 }
