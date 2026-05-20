@@ -36,8 +36,8 @@ namespace WinFormsPizza
         private void BtnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmListaProductos frmLista = new FrmListaProductos();
-            frmLista.ShowDialog();
+            //FrmListaProductos frmLista = new FrmListaProductos();
+            //frmLista.ShowDialog();
         }
 
         private void BtnGuardar_Click(object sender, EventArgs e)
@@ -56,37 +56,32 @@ namespace WinFormsPizza
 
             if (_producto != null) // Editar
             {
-                _producto.Nombre = TxtNombre.Text;
-                _producto.Descripcion = TxtDescripcion.Text;
-                _producto.Precio = double.TryParse(TxtPrecio.Text, out var precio) ? precio : 0;
-                _producto.TipoProducto = TxtTipoProducto.Text;
-                _producto.UnidadMedida = TxtUnidadMedida.Text;
-                _producto.ImageUrl = TxtImageUrl.Text;
+                AsignarValoresProducto(_producto);
                 _productoServ.EditarProducto(_producto);
             }
             else // Nuevo
             {
-                // Crear instancia del producto
-                _producto = new Producto()
-                {
-                    //ProductoId = 1, // TODO: implementar auto-incremental
-                    Nombre = TxtNombre.Text,
-                    Descripcion = TxtDescripcion.Text,
-                    Precio = double.TryParse(TxtPrecio.Text, out var precio) ? precio : 0,
-                    TipoProducto = TxtTipoProducto.Text,
-                    UnidadMedida = TxtUnidadMedida.Text,
-                    ImageUrl = TxtImageUrl.Text
-                };
-
-                //Persistir usando el patrón del modelo
+                _producto = new Producto();
+                AsignarValoresProducto(_producto);
                 _productoServ.AgregarProducto(_producto);
             }
-                       
+
 
             //Navegar a la lista de productos
             this.Close();
-            FrmListaProductos frmLista = new FrmListaProductos();
-            frmLista.ShowDialog();
+            //FrmListaProductos frmLista = new FrmListaProductos();
+            //frmLista.ShowDialog();
         }
+
+        private void AsignarValoresProducto(Producto producto)
+        {
+            producto.Nombre = TxtNombre.Text;
+            producto.Descripcion = TxtDescripcion.Text;
+            producto.Precio = double.TryParse(TxtPrecio.Text, out var precio) ? precio : 0;
+            producto.TipoProducto = TxtTipoProducto.Text;
+            producto.UnidadMedida = TxtUnidadMedida.Text;
+            producto.ImageUrl = TxtImageUrl.Text;
+        }
+
     }
 }

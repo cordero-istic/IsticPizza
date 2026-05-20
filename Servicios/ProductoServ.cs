@@ -43,5 +43,36 @@ namespace Servicios
             }
         }
 
+        public void EliminarProducto(int Id)
+        {
+            var productToDelete = _context.Productos.Find(Id);
+            if (productToDelete != null)
+            {
+                _context.Productos.Remove(productToDelete);
+                _context.SaveChanges();
+            }
+        }
+
+        //public List<Producto> BuscarPorTipoYMarca(string tipo, string marca)
+        //{
+        //    return _context.Productos
+        //        .Where(p => p.TipoProducto.Contains(tipo) && p.Marca.Contains(marca))
+        //        .ToList();
+        //}
+
+        public List<Producto> BuscarPorTipo(string tipo)
+        {
+            return _context.Productos
+                .Where(p => p.TipoProducto.Contains(tipo))
+                .ToList();
+        }
+
+        //public List<Producto> BuscarPorMarca(string marca)
+        //{
+        //    return _context.Productos
+        //        .Where(p => p.Marca.Contains(marca))
+        //        .ToList();
+        //}
+
     }
 }

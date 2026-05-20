@@ -9,7 +9,7 @@ namespace Entidades
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=C:\\Users\\corde\\Downloads\\IsticPizza 6_4\\IsticPizza\\WinFormsPizza\\isticpizza.db");
+            optionsBuilder.UseSqlite("Data Source=C:\\vcordero\\IsticPizza\\WinFormsPizza\\isticpizza.db");
         }
     }
 }
