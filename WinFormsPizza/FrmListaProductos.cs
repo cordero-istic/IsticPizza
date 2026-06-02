@@ -1,10 +1,11 @@
 ﻿using Entidades;
 using Servicios;
+using Servicios.Interfaces;
 namespace WinFormsPizza
 {
     public partial class FrmListaProductos : Form
     {
-        private readonly ProductoServ _productoServ;
+        private readonly IProductoServ _productoServ;
         public FrmListaProductos()
         {
             InitializeComponent();

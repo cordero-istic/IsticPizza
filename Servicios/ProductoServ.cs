@@ -1,8 +1,9 @@
 ﻿using Entidades;
 using Microsoft.EntityFrameworkCore;
+using Servicios.Interfaces;
 namespace Servicios
 {
-    public class ProductoServ
+    public class ProductoServ: IProductoServ
     {
         private readonly IsticPizzaContext _context;
 
