@@ -37,6 +37,7 @@
             TxtUsuario = new TextBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
+            LinkRegistrese = new LinkLabel();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -116,11 +117,23 @@
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
+            // LinkRegistrese
+            // 
+            LinkRegistrese.AutoSize = true;
+            LinkRegistrese.Location = new Point(242, 168);
+            LinkRegistrese.Name = "LinkRegistrese";
+            LinkRegistrese.Size = new Size(106, 15);
+            LinkRegistrese.TabIndex = 6;
+            LinkRegistrese.TabStop = true;
+            LinkRegistrese.Text = "¿No tienes cuenta?";
+            LinkRegistrese.LinkClicked += LinkRegistrese_LinkClicked;
+            // 
             // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(609, 212);
+            Controls.Add(LinkRegistrese);
             Controls.Add(pictureBox1);
             Controls.Add(groupBox1);
             Controls.Add(BtnIngresar);
@@ -132,6 +145,7 @@
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -144,5 +158,6 @@
         private TextBox TxtUsuario;
         private Label label1;
         private PictureBox pictureBox1;
+        private LinkLabel LinkRegistrese;
     }
 }

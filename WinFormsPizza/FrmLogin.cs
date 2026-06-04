@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Servicios.Implementaciones;
+using Servicios.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,35 +14,22 @@ namespace WinFormsPizza
 {
     public partial class FrmLogin : Form
     {
+        private readonly ISeguridadService _seguridadServ;
         public FrmLogin()
         {
             InitializeComponent();
+            _seguridadServ = new SeguridadService();
         }
-
+        
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
-            /*
-            if (TxtUsuario.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("El usuario es requerido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TxtUsuario.Focus();
-                return;
-            }
-
-            if (TxtClave.Text == string.Empty)
-            {
-                MessageBox.Show("La clave es requerida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TxtClave.Focus();
-                return;
-            }
-            */
-
             // En BtnIngresar_Click:
             if (!ValidarCampo(TxtUsuario, "El usuario") || !ValidarCampo(TxtClave, "La clave"))
                 return;
 
+            var Valido = _seguridadServ.ValidarUsuario(TxtUsuario.Text, TxtClave.Text);
 
-            if (TxtUsuario.Text == "Admin" && TxtClave.Text == "123456")
+            if (Valido)
             {
                 FrmPrincipal frmPrincipal = new FrmPrincipal();
                 frmPrincipal.Show();
@@ -66,5 +55,10 @@ namespace WinFormsPizza
             return true;
         }
 
+        private void LinkRegistrese_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmRegistrese frmRegistrese = new FrmRegistrese();
+            frmRegistrese.ShowDialog();
+        }
     }
 }
