@@ -2,6 +2,7 @@
 using Entidades;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Entidades.Migrations
 {
     [DbContext(typeof(IsticPizzaContext))]
-    partial class IsticPizzaContextModelSnapshot : ModelSnapshot
+    [Migration("20260609003425_CambiarClaveAInt")]
+    partial class CambiarClaveAInt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.26");
@@ -107,9 +110,6 @@ namespace Entidades.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("UsuarioId");
-
-                    b.HasIndex("Correo")
-                        .IsUnique();
 
                     b.ToTable("Usuarios");
                 });

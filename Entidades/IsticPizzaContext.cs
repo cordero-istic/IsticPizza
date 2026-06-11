@@ -12,5 +12,12 @@ namespace Entidades
         {
             optionsBuilder.UseSqlite("Data Source=C:\\Users\\corde\\Downloads\\IsticPizza 6_4\\IsticPizza\\WinFormsPizza\\isticpizza.db");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Usuario>()
+                .HasIndex(u => u.Correo)
+                .IsUnique();
+        }
     }
 }

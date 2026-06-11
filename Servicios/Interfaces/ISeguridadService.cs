@@ -10,9 +10,12 @@ namespace Servicios.Interfaces
     public interface ISeguridadService
     {
         string GenerarClaveTemporal();
-        bool ValidarUsuario(string usuario, string clave);
+        Usuario ValidarUsuario(string usuario);
         void CambiarClave(string usuario, string claveActual, string nuevaClave);
         bool ValidarCorreo(string correo);
         void AltaUsuario(Usuario usuario);
+        string EncriptarClave(string clave);
+        string DesencriptarClave(string claveEncriptada);
+        
     }
 }

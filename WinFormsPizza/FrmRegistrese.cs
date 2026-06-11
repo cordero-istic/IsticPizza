@@ -14,21 +14,22 @@ namespace WinFormsPizza
 
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
+            string ClaveTemporal = _seguridadServ.GenerarClaveTemporal();
             //Validar campos
             var NuevoUsuario = new Entidades.Usuario
             {
                 Nombre = TxtNombre.Text,
                 Apellido = TxtApellido.Text,
                 Correo = TxtCorreo.Text,
-                Clave = _seguridadServ.GenerarClaveTemporal(),
-                CambiarClave = true
+                Clave = ClaveTemporal,
+                CambiarClave = 1
             };
 
             //Guardar en la base de datos
             _seguridadServ.AltaUsuario(NuevoUsuario);
 
             //Mientras que implementamos el envio de correo, mostramos la clave en un mensaje
-            MessageBox.Show($"Su clave temporal es: {NuevoUsuario.Clave}, anotalaaaaa");
+            MessageBox.Show($"Su clave temporal es: {ClaveTemporal}, anotalaaaaa");
             this.Close();
         }
     }

@@ -26,11 +26,27 @@ namespace WinFormsPizza
             // En BtnIngresar_Click:
             if (!ValidarCampo(TxtUsuario, "El usuario") || !ValidarCampo(TxtClave, "La clave"))
                 return;
+            //Ojo cambiar lo de la clave
+            var UserValido = _seguridadServ.ValidarUsuario(TxtUsuario.Text);
 
-            var Valido = _seguridadServ.ValidarUsuario(TxtUsuario.Text, TxtClave.Text);
-
-            if (Valido)
+            if (UserValido != null)
             {
+                //Validar la clave ingresada con la clave almacenada en la base de datos
+                if (UserValido.Clave != _seguridadServ.EncriptarClave(TxtClave.Text))
+                {
+                    MessageBox.Show("Usuario o clave incorrectos, intente de nuevo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TxtUsuario.Focus();
+                    return;
+                }
+
+                if (UserValido.CambiarClave==1)
+                {
+                    MessageBox.Show("Debe cambiar su clave", "Cambio de clave requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    FrmCambiarClave frmCambiarClave = new FrmCambiarClave(UserValido);
+                    frmCambiarClave.ShowDialog();
+                    return; // Salir del método para que el usuario cambie su clave antes de ingresar
+                }
+
                 FrmPrincipal frmPrincipal = new FrmPrincipal();
                 frmPrincipal.Show();
 

@@ -13,6 +13,6 @@ namespace Entidades
         public string Apellido{ get; set; }
         public string Correo { get; set; }
         public string Clave { get; set; }
-        public bool CambiarClave { get; set; } = true;
+        public int CambiarClave { get; set; } = 1;
     }
 }
