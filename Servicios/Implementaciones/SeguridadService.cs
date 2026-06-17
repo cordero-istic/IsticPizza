@@ -34,15 +34,10 @@ namespace Servicios.Implementaciones
                 }
             }
         }
-
-        public bool ValidarCorreo(string correo)
+        
+        public string AltaUsuario(Usuario usuario)
         {
-            // Implementación del método
-            return true;
-        }
-
-        public void AltaUsuario(Usuario usuario)
-        {
+            string Result = null;
             try
             {
                 using (var context = new IsticPizzaContext())
@@ -56,10 +51,11 @@ namespace Servicios.Implementaciones
             {
                 if (ex.InnerException?.Message.Contains("UNIQUE") == true)
                 {
-                    throw new Exception("El correo ya está registrado");
+                    //throw new Exception("El correo ya está registrado");
+                    Result = "El correo ya está registrado";
                 }
-                throw;
             }
+            return Result;
         }
 
         public string GenerarClaveTemporal()

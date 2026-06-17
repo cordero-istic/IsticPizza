@@ -37,6 +37,8 @@
             label1 = new Label();
             BtnAceptar = new Button();
             BtnCancelar = new Button();
+            TxtTemporal = new TextBox();
+            label4 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -122,11 +124,29 @@
             BtnCancelar.Text = "Cancelar";
             BtnCancelar.UseVisualStyleBackColor = true;
             // 
+            // TxtTemporal
+            // 
+            TxtTemporal.Location = new Point(83, 175);
+            TxtTemporal.Name = "TxtTemporal";
+            TxtTemporal.Size = new Size(143, 23);
+            TxtTemporal.TabIndex = 7;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(27, 178);
+            label4.Name = "label4";
+            label4.Size = new Size(51, 15);
+            label4.TabIndex = 6;
+            label4.Text = "Anotala:";
+            // 
             // FrmRegistrese
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(421, 212);
+            Controls.Add(TxtTemporal);
+            Controls.Add(label4);
             Controls.Add(BtnCancelar);
             Controls.Add(BtnAceptar);
             Controls.Add(groupBox1);
@@ -136,6 +156,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -149,5 +170,7 @@
         private TextBox TxtNombre;
         private Button BtnAceptar;
         private Button BtnCancelar;
+        private TextBox TxtTemporal;
+        private Label label4;
     }
 }
