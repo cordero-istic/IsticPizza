@@ -47,7 +47,7 @@ namespace WinFormsPizza
                     return; // Salir del método para que el usuario cambie su clave antes de ingresar
                 }
 
-                FrmPrincipal frmPrincipal = new FrmPrincipal();
+                FrmPrincipal frmPrincipal = new FrmPrincipal(UserValido);
                 frmPrincipal.Show();
 
                 this.Hide(); // Oculta el formulario de login, pero no lo cierra completamente

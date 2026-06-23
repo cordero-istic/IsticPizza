@@ -33,6 +33,8 @@
             BtnClientes = new Button();
             pictureBox1 = new PictureBox();
             BtnProductos = new Button();
+            label1 = new Label();
+            LblUser = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -78,11 +80,33 @@
             BtnProductos.UseVisualStyleBackColor = true;
             BtnProductos.Click += BtnProductos_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(17, 15);
+            label1.Name = "label1";
+            label1.Size = new Size(73, 21);
+            label1.TabIndex = 4;
+            label1.Text = "Usuario:";
+            // 
+            // LblUser
+            // 
+            LblUser.AutoSize = true;
+            LblUser.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LblUser.Location = new Point(86, 16);
+            LblUser.Name = "LblUser";
+            LblUser.Size = new Size(107, 21);
+            LblUser.TabIndex = 5;
+            LblUser.Text = "Demostración";
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 489);
+            Controls.Add(LblUser);
+            Controls.Add(label1);
             Controls.Add(BtnProductos);
             Controls.Add(pictureBox1);
             Controls.Add(BtnClientes);
@@ -93,6 +117,7 @@
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -101,5 +126,7 @@
         private Button BtnClientes;
         private PictureBox pictureBox1;
         private Button BtnProductos;
+        private Label label1;
+        private Label LblUser;
     }
 }

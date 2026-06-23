@@ -1,10 +1,13 @@
+using Entidades;
+
 namespace WinFormsPizza
 {
     public partial class FrmPrincipal : Form
     {
-        public FrmPrincipal()
+        public FrmPrincipal(Usuario usuario)
         {
             InitializeComponent();
+            LblUser.Text = usuario.Correo.ToString();
         }
 
         private void Form1_Load(object sender, EventArgs e)
