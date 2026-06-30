@@ -2,6 +2,7 @@
 using Servicios.Interfaces;
 using Servicios.Validators;
 using System.ComponentModel.DataAnnotations;
+using System.Configuration;
 
 namespace WinFormsPizza
 {
@@ -14,6 +15,29 @@ namespace WinFormsPizza
             InitializeComponent();
             _seguridadServ = new SeguridadService();
             _validadorEmail = new ValidadorEmail();
+        }
+
+        private void EviarClaveCorreo(string claveTemporal)
+        {
+                  // Configuración para Gmail
+            var correo = new SmtpMailService(
+                smtpServidor: ConfigurationManager.AppSettings["SmtpServidor"],
+                smtpPuerto: int.Parse(ConfigurationManager.AppSettings["Puerto"]),
+                usuario: ConfigurationManager.AppSettings["Usuario"],
+                contrasena: ConfigurationManager.AppSettings["Contrasena"],
+                usarSsl: bool.Parse(ConfigurationManager.AppSettings["UsarSsl"])
+            );
+
+            bool enviado = correo.Enviar(
+                destinatario: "vcordero@iiconcepcion.edu.ar",
+                asunto: "Clave Temporal",
+                cuerpo: "Estimado usuario,\n\nLe enviamos su clave temporal. La misma es: " + claveTemporal +"\n\nSaludos."
+            );
+
+            if (enviado)
+                MessageBox.Show("✅ Correo enviado correctamente.");
+            else
+                MessageBox.Show("❌ Falló el envío.");
         }
 
         private void BtnAceptar_Click(object sender, EventArgs e)
@@ -49,8 +73,10 @@ namespace WinFormsPizza
             else
             {
                 //Mientras que implementamos el envio de correo, mostramos la clave en un mensaje
-                MessageBox.Show($"Anote su clave temporal");
-                TxtTemporal.Text = ClaveTemporal;
+                //MessageBox.Show($"Anote su clave temporal");
+                //TxtTemporal.Text = ClaveTemporal;
+                EviarClaveCorreo(ClaveTemporal);
+
             }
         }
     }
